@@ -71,9 +71,30 @@ function throwError() {
     throw new Error("Bhai Bhai error bhi dekhle bhai line number 118 pr");
 }
 function nullishDemo(name) {
-    const displayName = name !== null && name !== void 0 ? name : "Guest";
+    const displayName = name ?? "Guest";
     console.log(displayName);
 }
 nullishDemo("Kamal");
 nullishDemo(null);
 nullishDemo(undefined);
+let unknownData = "Data from and APIa";
+let len = unknownData.length;
+let len2 = unknownData.length;
+console.log(len2);
+function handleApiResponse(data) {
+    if (typeof data === "object" && data !== null && "name" in data) {
+        console.log("Name is:", data.name);
+    }
+    else {
+        console.log("Invalid response format");
+    }
+}
+handleApiResponse("success");
+handleApiResponse({ name: "Abhijeet Maity" });
+function neverExample() {
+    throw new Error("Error from inside of neverExample");
+}
+console.log("Called before the execution of never");
+console.log("Called after the execution of never");
+console.log("Called before the execution of never");
+console.log("Called after the execution of never");

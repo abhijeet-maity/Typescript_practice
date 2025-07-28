@@ -132,3 +132,45 @@ nullishDemo(null);
 nullishDemo(undefined);
 
 //Assertion type
+//used to tell the ts compiler the type of the value and override type inference
+//no runtime type checking only compile time type checks.
+//ex-1
+let unknownData : any = "Data from and APIa";
+let len : number = (<string> unknownData).length;
+let len2 : number = (unknownData as string).length;
+console.log(len2);
+//ex-2 through Narrowing concept.
+function handleApiResponse(data: unknown) {
+  if (typeof data === "object" && data !== null && "name" in data) {
+    console.log("Name is:", (data as { name: string }).name);
+  } else {
+    console.log("Invalid response format");
+  }
+}
+
+handleApiResponse("success"); //when wrong data provided
+handleApiResponse({name: "Abhijeet Maity"});
+
+//never
+//for the functions that never returns any value or it throws an error
+
+function neverExample(): never {
+  throw new Error("Error from inside of neverExample");
+}
+
+console.log("Called before the execution of never");
+//!! Don't execute the below code or else error will be thrown.
+// neverExample();
+console.log("Called after the execution of never");
+//!! Don't execute the below code or else error will be thrown.
+//
+//Normal function with never type.
+// function neverExample2(): never {
+//   console.log("Normal function from inside of neverExample2");
+// }
+
+console.log("Called before the execution of never");
+// neverExample2();
+console.log("Called after the execution of never");
+
+                                

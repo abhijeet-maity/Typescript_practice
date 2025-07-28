@@ -1,1 +1,15 @@
 "use strict";
+let octal = 0o0001;
+console.log(octal);
+let hexa = 0b100001;
+console.log(hexa);
+let binary = 0x1000;
+console.log(binary);
+let number = 9007199254740991n;
+let n1 = 1n;
+let n2 = 200n;
+console.log(number + n1);
+console.log(number + n2);
+let s1 = Symbol();
+let s2 = Symbol();
+console.log(s1 === s2);
