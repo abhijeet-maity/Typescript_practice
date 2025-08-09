@@ -22,3 +22,13 @@ let product = new Product("Banana", 30, 1);
 console.log(product.buyProduct());
 product.addToCart();
 console.log(product.buyProduct());
+class CollegeData {
+    constructor(cName) {
+        this.name = cName;
+    }
+    printData() {
+        console.log("Are you " + this.name);
+    }
+}
+const student = new CollegeData("Abhijeet");
+student.printData();

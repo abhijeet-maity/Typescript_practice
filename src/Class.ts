@@ -24,3 +24,23 @@ let product = new Product("Banana", 30, 1);
 console.log(product.buyProduct());
 product.addToCart();
 console.log(product.buyProduct());
+
+
+//interface with Class definition
+interface Classdatatype {
+    name: string,
+    printData() : void;
+}
+
+class CollegeData implements Classdatatype {
+    name:string;
+    constructor(cName:string){
+        this.name = cName;
+    }
+    printData(): void {
+        console.log("Are you "+this.name);
+    }
+}
+
+const student = new CollegeData("Abhijeet");
+student.printData();
